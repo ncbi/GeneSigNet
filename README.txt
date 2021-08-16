@@ -8,7 +8,7 @@ and construct a weighted-directed network representing casual the relationships 
 
 References:
 
-GeneSig: A network-based approach to infer causality flows over network nodes
+GeneSig: A network-based approach for inferring causality flows over gene-signature network
 Bayarbaatar Amgalan, Yoo-Ah Kim and Teresa M. Przytycka
 
 
