@@ -24,7 +24,7 @@ mutational exposures. Its rows denote samples while the columns denote variables
 
 Output:  "Weight_Matrix_LUAD.csv" or "Weight_Matrix_BRCA.csv": (N_variables, N_variables) a dataframe representing relationship between 
 variables and its non-zero entries in i-th row represents the weights of incoming effects on i-th variables 
-from the other variables. Thus, The nonzero value in i-th row and j-th column represents the weight of effect on i-th variable from j-th variable 
+from the other variables. Thus, The nonzero value in i-th row and j-th column represents the weight of effect on i-th variable from j-th variable (j-->i)
 
 Go to the directory where Construct_Network.py and Input Data are located. Then run Construct_Network.py as following
 
@@ -35,7 +35,7 @@ Go to the directory where Construct_Network.py and Input Data are located. Then 
 
 Input:   "Weight_Matrix_LUAD.csv" or "Weight_Matrix_BRCA.csv": (N_variables, N_variables) a dataframe representing relationship between 
 variables and its non-zero entries in i-th row represents the weights of incoming effects on i-th variables 
-from the other variables. Thus, w_ij represents the weight of effect on i-th variable from j-th variable
+from the other variables. Thus, w_ij represents the weight of effect on i-th variable from j-th variable (j-->i)
 
 Input:   "FocusedNodes" must be provided in python code (Find_Causals_and_Affecteds.py), not as a separate file. A set of focus genes or signatures that we are interested in identifying the regulators and targets of them. For our settings, the mutation signatures (SigStates) are considered as the focused nodes
 
@@ -62,7 +62,7 @@ data/
 
 results/
 	"Weight_Matrix_LUAD.csv" or "Weight_Matrix_BRCA.csv": a matrix representing relationship between 
-      variables and its non-zero entries in i-th row represents the weights of incoming effects on i-th variables 
+      variables and its non-zero entries of i-th row represent the weights of incoming effects on i-th variables 
       from the other variables (nodes in the Gene Signature Network)
 
       "Causals_and_Affecteds_LUAD.csv" or "Causals_and_Affecteds_LUAD.csv": Causal and affected set for the focused genes and mutational signatures with their
