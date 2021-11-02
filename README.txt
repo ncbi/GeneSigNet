@@ -67,3 +67,5 @@ results/
 
       "Causals_and_Affecteds_LUAD.csv" or "Causals_and_Affecteds_LUAD.csv": Causal and affected set for the focused genes and mutational signatures with their
       interaction weights.
+      
+      "Results_Summary.xlsx": The upstream and downstream sets for SigStates and the corresponding GO terms enriched for the genes in those sets
