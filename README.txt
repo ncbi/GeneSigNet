@@ -6,10 +6,10 @@ This README file includes the description of GeneSigNet package,
 which take gene expressions and mutational signature exposures from cancer patients as an input
 and construct a weighted-directed network representing casual the relationships between genes and signatures as output  
 
-References:
+References: Influence network model uncovers new relations between biological processes and mutational signatures
 
 GeneSigNet: A network-based approach to infer causality flows over network nodes
-Bayarbaatar Amgalan, Yoo-Ah Kim and Teresa M. Przytycka
+Bayarbaatar Amgalan, Damian Wojtowicz, Yoo-Ah Kim and Teresa M. Przytycka
 
 
 Questions? bayarbaatar.amgalan@nih.gov
