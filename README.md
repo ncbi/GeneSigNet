@@ -27,9 +27,10 @@ Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signa
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
+* [Weight_Matrix.cvs](Package/Weight_Matrix.cvs): The
 
 #### Results (.cvs format)
-The results from the analysis on breast and lung cancer data 
+The following files proves the results for the analysis on breast and lung cancer data 
 * [Weight_Matrix_BRCA.cvs](Results/Weight_Matrix_BRCA.cvs): The
 * [Weight_Matrix_LUAD.cvs](Results/Weight_Matrix_LUAD.cvs):
 
