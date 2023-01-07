@@ -29,9 +29,8 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
 #### Results (.cvs format)
-sefr 
+The results from the analysis on breast and lung cancer data 
 * [Weight_Matrix_BRCA.cvs](Results/Weight_Matrix_BRCA.cvs): The
-* [Weight_Matrix_BRCA.cvs](Results/Weight_Matrix_BRCA.cvs):
 * [Weight_Matrix_LUAD.cvs](Results/Weight_Matrix_LUAD.cvs):
 
 * [SignatureNetwork_BRCA.html](Results/SignatureNetwork_BRCA.html):
