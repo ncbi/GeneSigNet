@@ -28,11 +28,11 @@ th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 #### Results (.cvs format)
-[Weight_Matrix_BRCA.cvs](results/Weight_Matrix_BRCA.cvs)
-[Weight_Matrix_LUAD.cvs](results/Weight_Matrix_LUAD.cvs)
+* [Weight_Matrix_BRCA.cvs](results/Weight_Matrix_BRCA.cvs)
+* [Weight_Matrix_LUAD.cvs](results/Weight_Matrix_LUAD.cvs)
 
 * [SignatureNetwork_BRCA.html](results/SignatureNetwork_BRCA.html)
-* 
+* [SignatureNetwork_LUAD.html](results/SignatureNetwork_LUAD.html)
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
