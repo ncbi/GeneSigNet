@@ -6,7 +6,7 @@ A computational method for constructing Gene - Signature causal network from gen
 pip install GeneSigNet
 ```
 
-#### To use GeneSigNet
+#### Sample python script to use GeneSigNet
 
 ```
 import pandas as pd
@@ -21,7 +21,7 @@ Net=GSN.WeightMatrix(D, maxit, tolerance)
 Weight_Matrix=Net.ConstructNet()
 Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
 ```
-#### Visualize the result as network
+#### Sample python script visualize the result as network
 ```
 Signatures=SigData.columns
 th=0.05
@@ -33,5 +33,8 @@ The following files provides the gene expression and exposure of mutational sign
 
 * [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv): The normalized gene expression data (ICGC data portal) for 266 breast cancer (BRCA) patients. Gene expression profiles for 2,204 genes involved in either DNA metabolic or immune response processes of the Gene Ontology (GO) database were
 selected for the analysis.
-* [Signature_Exposure_BRCA.csv](data/Signature_Exposure_BRCA.csv): Exposure of 6 mutational signatures and HRD mutational status are used for the analysis
+* [Signature_Exposure_BRCA.csv](data/Signature_Exposure_BRCA.csv): Exposure of 6 mutational signatures and HRD mutational status in breast cancer are used for the analysis
+* [Gene_Expression_LUAD.csv](data/Gene_Expression_LUAD.csv): The normalized gene expression data (TCGA data portal) for 466 lung cancer (LUAD) patients. Gene expression profiles for 2,433 genes involved in either DNA metabolic or immune response processes of the Gene Ontology (GO) database were
+selected for the analysis.
+* [Signature_Exposure_LUAD.csv](data/Signature_Exposure_LUAD.csv): Exposure of 6 mutational signatures known to be operative in lung cancer are used for the analysis.
 
