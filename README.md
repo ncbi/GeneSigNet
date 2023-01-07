@@ -30,5 +30,4 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
-* [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv
-): Normalized gene expression data of 8591 orthologs from 9 drosophila species each with 4 replicates.
+* [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv): Normalized expression collected from ICGC which covers 266 cancer samples and 2,204 genes (Go term DNAmetabolic and immune response precesses).
