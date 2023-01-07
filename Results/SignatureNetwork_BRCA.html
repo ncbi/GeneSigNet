@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: white;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "orange", "font": {"color": "black"}, "id": "HRDstatus", "label": "HRDstatus", "shape": "owl", "title": "HRDstatus Neighbor:\u003c\u003eFKBP6\u003cbr\u003eAPOBEC-D\u003cbr\u003eTFRC\u003cbr\u003eMAD1L1\u003cbr\u003eEME1\u003cbr\u003eZSWIM7\u003cbr\u003eDSBrepair", "value": 7}, {"color": "green", "font": {"color": "black"}, "id": "MAD1L1", "label": "MAD1L1", "shape": "dot", "title": "HRDstatus Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "TFRC", "label": "TFRC", "shape": "dot", "title": "HRDstatus Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "FKBP6", "label": "FKBP6", "shape": "dot", "title": "HRDstatus Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "EME1", "label": "EME1", "shape": "dot", "title": "HRDstatus Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "ZSWIM7", "label": "ZSWIM7", "shape": "dot", "title": "HRDstatus Neighbor:\u003c\u003e", "value": 0}, {"color": "orange", "font": {"color": "black"}, "id": "DSBrepair", "label": "DSBrepair", "shape": "owl", "title": "DSBrepair Neighbor:\u003c\u003eCD151\u003cbr\u003eSEC13\u003cbr\u003eTDRD9\u003cbr\u003eHEMK1\u003cbr\u003eFANCI\u003cbr\u003eFOXM1\u003cbr\u003eWDR78\u003cbr\u003eSLC16A1\u003cbr\u003eAPOBEC-C\u003cbr\u003eOGG1", "value": 10}, {"color": "orange", "font": {"color": "black"}, "id": "APOBEC-D", "label": "APOBEC-D", "shape": "owl", "title": "APOBEC-D Neighbor:\u003c\u003eDCLRE1C\u003cbr\u003eADAMTS13\u003cbr\u003eTWIST1", "value": 3}, {"color": "green", "font": {"color": "black"}, "id": "CD151", "label": "CD151", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "WDR78", "label": "WDR78", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TDRD9", "label": "TDRD9", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FANCI", "label": "FANCI", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "SLC16A1", "label": "SLC16A1", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FOXM1", "label": "FOXM1", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "OGG1", "label": "OGG1", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "SEC13", "label": "SEC13", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "HEMK1", "label": "HEMK1", "shape": "dot", "title": "DSBrepair Neighbor:\u003c\u003e", "value": 0}, {"color": "orange", "font": {"color": "black"}, "id": "APOBEC-C", "label": "APOBEC-C", "shape": "owl", "title": "APOBEC-C Neighbor:\u003c\u003eSBS1\u003cbr\u003ePGM3\u003cbr\u003eIL7\u003cbr\u003eCLNK\u003cbr\u003eSBS5\u003cbr\u003eAPOBEC-D", "value": 6}, {"color": "green", "font": {"color": "black"}, "id": "FZD5", "label": "FZD5", "shape": "dot", "title": "FZD5 Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "EPHB3", "label": "EPHB3", "shape": "dot", "title": "EPHB3 Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CXCL14", "label": "CXCL14", "shape": "dot", "title": "CXCL14 Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "GPR97", "label": "GPR97", "shape": "dot", "title": "GPR97 Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PDGFB", "label": "PDGFB", "shape": "dot", "title": "PDGFB Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TRIM34", "label": "TRIM34", "shape": "dot", "title": "TRIM34 Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PKIB", "label": "PKIB", "shape": "dot", "title": "PKIB Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PLA2G2D", "label": "PLA2G2D", "shape": "dot", "title": "PLA2G2D Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "APOBEC3B", "label": "APOBEC3B", "shape": "dot", "title": "APOBEC3B Neighbor:\u003c\u003eDSBrepair", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PGM3", "label": "PGM3", "shape": "dot", "title": "APOBEC-C Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "IL7", "label": "IL7", "shape": "dot", "title": "APOBEC-C Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CLNK", "label": "CLNK", "shape": "dot", "title": "APOBEC-C Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "orange", "font": {"color": "black"}, "id": "SBS1", "label": "SBS1", "shape": "owl", "title": "SBS1 Neighbor:\u003c\u003eMYO1C\u003cbr\u003eGRB14\u003cbr\u003eTLR5\u003cbr\u003eCREBBP\u003cbr\u003eCD40\u003cbr\u003eTEX11\u003cbr\u003eSTON2\u003cbr\u003eIMPDH1\u003cbr\u003ePREX1\u003cbr\u003eMYC\u003cbr\u003eDCLRE1C\u003cbr\u003eARIH2\u003cbr\u003eAPOBEC-C\u003cbr\u003eCBS\u003cbr\u003eRASGRP4\u003cbr\u003eIFITM3\u003cbr\u003eERCC6\u003cbr\u003eP2RX7", "value": 18}, {"color": "orange", "font": {"color": "black"}, "id": "SBS5", "label": "SBS5", "shape": "owl", "title": "SBS5 Neighbor:\u003c\u003eFRK\u003cbr\u003eFARP2\u003cbr\u003eCBX8\u003cbr\u003eMITF\u003cbr\u003eJAG2\u003cbr\u003eAPOBEC-C\u003cbr\u003eAPOBEC3H", "value": 7}, {"color": "green", "font": {"color": "black"}, "id": "IL1RL2", "label": "IL1RL2", "shape": "dot", "title": "IL1RL2 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FCN3", "label": "FCN3", "shape": "dot", "title": "FCN3 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PIK3R2", "label": "PIK3R2", "shape": "dot", "title": "PIK3R2 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CDKN1C", "label": "CDKN1C", "shape": "dot", "title": "CDKN1C Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "STAR", "label": "STAR", "shape": "dot", "title": "STAR Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CCR6", "label": "CCR6", "shape": "dot", "title": "CCR6 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "PAK1", "label": "PAK1", "shape": "dot", "title": "PAK1 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "STYK1", "label": "STYK1", "shape": "dot", "title": "STYK1 Neighbor:\u003c\u003eAPOBEC-C", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "ERCC6", "label": "ERCC6", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "P2RX7", "label": "P2RX7", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "CREBBP", "label": "CREBBP", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "MYO1C", "label": "MYO1C", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "PREX1", "label": "PREX1", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "CD40", "label": "CD40", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "TLR5", "label": "TLR5", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "CBS", "label": "CBS", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "GRB14", "label": "GRB14", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "TEX11", "label": "TEX11", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "IFITM3", "label": "IFITM3", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "STON2", "label": "STON2", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "ARIH2", "label": "ARIH2", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "RASGRP4", "label": "RASGRP4", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MYC", "label": "MYC", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "IMPDH1", "label": "IMPDH1", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "DCLRE1C", "label": "DCLRE1C", "shape": "dot", "title": "SBS1 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "RAB34", "label": "RAB34", "shape": "dot", "title": "RAB34 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "GZMH", "label": "GZMH", "shape": "dot", "title": "GZMH Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FOXL1", "label": "FOXL1", "shape": "dot", "title": "FOXL1 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "BST2", "label": "BST2", "shape": "dot", "title": "BST2 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "DAB2IP", "label": "DAB2IP", "shape": "dot", "title": "DAB2IP Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "ZNF175", "label": "ZNF175", "shape": "dot", "title": "ZNF175 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TNF", "label": "TNF", "shape": "dot", "title": "TNF Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "GREM1", "label": "GREM1", "shape": "dot", "title": "GREM1 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "RNF125", "label": "RNF125", "shape": "dot", "title": "RNF125 Neighbor:\u003c\u003eSBS1", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TWIST1", "label": "TWIST1", "shape": "dot", "title": "APOBEC-D Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "ADAMTS13", "label": "ADAMTS13", "shape": "dot", "title": "APOBEC-D Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "GAB2", "label": "GAB2", "shape": "dot", "title": "GAB2 Neighbor:\u003c\u003eAPOBEC-D", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "IL2RB", "label": "IL2RB", "shape": "dot", "title": "IL2RB Neighbor:\u003c\u003eAPOBEC-D", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "REXO4", "label": "REXO4", "shape": "dot", "title": "REXO4 Neighbor:\u003c\u003eAPOBEC-D", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "BMX", "label": "BMX", "shape": "dot", "title": "BMX Neighbor:\u003c\u003eAPOBEC-D", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "APBB1", "label": "APBB1", "shape": "dot", "title": "APBB1 Neighbor:\u003c\u003eAPOBEC-D", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MITF", "label": "MITF", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CBX8", "label": "CBX8", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "FARP2", "label": "FARP2", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FRK", "label": "FRK", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "APOBEC3H", "label": "APOBEC3H", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "JAG2", "label": "JAG2", "shape": "dot", "title": "SBS5 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "SLC7A11", "label": "SLC7A11", "shape": "dot", "title": "SLC7A11 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TAZ", "label": "TAZ", "shape": "dot", "title": "TAZ Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "FOXJ1", "label": "FOXJ1", "shape": "dot", "title": "FOXJ1 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "EFNB2", "label": "EFNB2", "shape": "dot", "title": "EFNB2 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MCM2", "label": "MCM2", "shape": "dot", "title": "MCM2 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MAPKAPK2", "label": "MAPKAPK2", "shape": "dot", "title": "MAPKAPK2 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "IL1A", "label": "IL1A", "shape": "dot", "title": "IL1A Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "SLA2", "label": "SLA2", "shape": "dot", "title": "SLA2 Neighbor:\u003c\u003eSBS5", "value": 1}, {"color": "orange", "font": {"color": "black"}, "id": "SBS8", "label": "SBS8", "shape": "owl", "title": "SBS8 Neighbor:\u003c\u003eSOX6", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "SOX6", "label": "SOX6", "shape": "dot", "title": "SBS8 Neighbor:\u003c\u003e", "value": 0}, {"color": "green", "font": {"color": "black"}, "id": "NHP2", "label": "NHP2", "shape": "dot", "title": "NHP2 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "IFITM2", "label": "IFITM2", "shape": "dot", "title": "IFITM2 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "EDN1", "label": "EDN1", "shape": "dot", "title": "EDN1 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "CCR8", "label": "CCR8", "shape": "dot", "title": "CCR8 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "TXK", "label": "TXK", "shape": "dot", "title": "TXK Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MOV10L1", "label": "MOV10L1", "shape": "dot", "title": "MOV10L1 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "POLM", "label": "POLM", "shape": "dot", "title": "POLM Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "MAPKAPK3", "label": "MAPKAPK3", "shape": "dot", "title": "MAPKAPK3 Neighbor:\u003c\u003eSBS8", "value": 1}, {"color": "green", "font": {"color": "black"}, "id": "DAPK2", "label": "DAPK2", "shape": "dot", "title": "DAPK2 Neighbor:\u003c\u003eSBS8", "value": 1}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "red", "from": "HRDstatus", "to": "MAD1L1", "value": 0.041623697}, {"arrows": "to", "color": "red", "from": "HRDstatus", "to": "TFRC", "value": 0.021324124}, {"arrows": "to", "color": "blue", "from": "HRDstatus", "to": "FKBP6", "value": -0.058958433}, {"arrows": "to", "color": "red", "from": "HRDstatus", "to": "EME1", "value": 0.025166414}, {"arrows": "to", "color": "red", "from": "HRDstatus", "to": "ZSWIM7", "value": 0.024549552}, {"arrows": "to", "color": "red", "from": "HRDstatus", "to": "DSBrepair", "value": 0.260797111}, {"arrows": "to", "color": "blue", "from": "HRDstatus", "to": "APOBEC-D", "value": -0.021907466}, {"arrows": "to", "color": "blue", "from": "DSBrepair", "to": "CD151", "value": -0.027188409}, {"arrows": "to", "color": "blue", "from": "DSBrepair", "to": "WDR78", "value": -0.02126134}, {"arrows": "to", "color": "blue", "from": "DSBrepair", "to": "TDRD9", "value": -0.036343055}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "FANCI", "value": 0.021922002}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "SLC16A1", "value": 0.026268262}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "FOXM1", "value": 0.020657482}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "OGG1", "value": 0.024601282}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "SEC13", "value": 0.020056368}, {"arrows": "to", "color": "blue", "from": "DSBrepair", "to": "HEMK1", "value": -0.023098018}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "APOBEC-C", "value": 0.160712328}, {"arrows": "to", "color": "red", "from": "FZD5", "to": "DSBrepair", "value": 0.0239702}, {"arrows": "to", "color": "red", "from": "EPHB3", "to": "DSBrepair", "value": 0.036413157}, {"arrows": "to", "color": "blue", "from": "CXCL14", "to": "DSBrepair", "value": -0.036215025}, {"arrows": "to", "color": "blue", "from": "TDRD9", "to": "DSBrepair", "value": -0.042269623}, {"arrows": "to", "color": "red", "from": "GPR97", "to": "DSBrepair", "value": 0.038728777}, {"arrows": "to", "color": "red", "from": "PDGFB", "to": "DSBrepair", "value": 0.020485469}, {"arrows": "to", "color": "blue", "from": "TRIM34", "to": "DSBrepair", "value": -0.118822598}, {"arrows": "to", "color": "blue", "from": "PKIB", "to": "DSBrepair", "value": -0.043033199}, {"arrows": "to", "color": "blue", "from": "PLA2G2D", "to": "DSBrepair", "value": -0.027719215}, {"arrows": "to", "color": "red", "from": "SLC16A1", "to": "DSBrepair", "value": 0.044414377}, {"arrows": "to", "color": "red", "from": "APOBEC3B", "to": "DSBrepair", "value": 0.068674846}, {"arrows": "to", "color": "red", "from": "HRDstatus", "to": "DSBrepair", "value": 0.260797111}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "PGM3", "value": 0.024543636}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "IL7", "value": 0.022377341}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "CLNK", "value": 0.050703724}, {"arrows": "to", "color": "blue", "from": "APOBEC-C", "to": "SBS1", "value": -0.059414852}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "APOBEC-D", "value": 0.416498638}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "SBS5", "value": 0.029866965}, {"arrows": "to", "color": "blue", "from": "WDR78", "to": "APOBEC-C", "value": -0.053483649}, {"arrows": "to", "color": "red", "from": "IL1RL2", "to": "APOBEC-C", "value": 0.035996104}, {"arrows": "to", "color": "red", "from": "FCN3", "to": "APOBEC-C", "value": 0.024586295}, {"arrows": "to", "color": "red", "from": "IL7", "to": "APOBEC-C", "value": 0.081689104}, {"arrows": "to", "color": "red", "from": "PIK3R2", "to": "APOBEC-C", "value": 0.042759578}, {"arrows": "to", "color": "blue", "from": "CDKN1C", "to": "APOBEC-C", "value": -0.045166505}, {"arrows": "to", "color": "blue", "from": "STAR", "to": "APOBEC-C", "value": -0.032917795}, {"arrows": "to", "color": "blue", "from": "CCR6", "to": "APOBEC-C", "value": -0.044607816}, {"arrows": "to", "color": "blue", "from": "PAK1", "to": "APOBEC-C", "value": -0.027921005}, {"arrows": "to", "color": "red", "from": "CLNK", "to": "APOBEC-C", "value": 0.03813178}, {"arrows": "to", "color": "red", "from": "STYK1", "to": "APOBEC-C", "value": 0.055634968}, {"arrows": "to", "color": "red", "from": "DSBrepair", "to": "APOBEC-C", "value": 0.160712328}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "APOBEC-C", "value": -0.078975253}, {"arrows": "to", "color": "red", "from": "SBS5", "to": "APOBEC-C", "value": 0.026783526}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "ERCC6", "value": -0.020659288}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "P2RX7", "value": -0.029896091}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "CREBBP", "value": 0.022146093}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "MYO1C", "value": -0.023633576}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "PREX1", "value": 0.021746784}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "CD40", "value": -0.027278045}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "TLR5", "value": 0.028621504}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "CBS", "value": -0.035567187}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "GRB14", "value": -0.039961432}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "TEX11", "value": 0.031514626}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "IFITM3", "value": 0.046987143}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "STON2", "value": -0.025178451}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "ARIH2", "value": 0.022735366}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "RASGRP4", "value": 0.047821073}, {"arrows": "to", "color": "red", "from": "SBS1", "to": "MYC", "value": 0.020132316}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "IMPDH1", "value": -0.020184422}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "DCLRE1C", "value": -0.021894507}, {"arrows": "to", "color": "blue", "from": "SBS1", "to": "APOBEC-C", "value": -0.078975253}, {"arrows": "to", "color": "blue", "from": "RAB34", "to": "SBS1", "value": -0.039024916}, {"arrows": "to", "color": "blue", "from": "GZMH", "to": "SBS1", "value": -0.055116198}, {"arrows": "to", "color": "red", "from": "FOXL1", "to": "SBS1", "value": 0.025795247}, {"arrows": "to", "color": "blue", "from": "BST2", "to": "SBS1", "value": -0.089215735}, {"arrows": "to", "color": "red", "from": "DAB2IP", "to": "SBS1", "value": 0.037411536}, {"arrows": "to", "color": "blue", "from": "ZNF175", "to": "SBS1", "value": -0.047599192}, {"arrows": "to", "color": "blue", "from": "TNF", "to": "SBS1", "value": -0.027052023}, {"arrows": "to", "color": "red", "from": "IFITM3", "to": "SBS1", "value": 0.151927461}, {"arrows": "to", "color": "blue", "from": "GREM1", "to": "SBS1", "value": -0.037314597}, {"arrows": "to", "color": "blue", "from": "STON2", "to": "SBS1", "value": -0.055598266}, {"arrows": "to", "color": "red", "from": "RASGRP4", "to": "SBS1", "value": 0.097208074}, {"arrows": "to", "color": "blue", "from": "RNF125", "to": "SBS1", "value": -0.049673456}, {"arrows": "to", "color": "blue", "from": "APOBEC-C", "to": "SBS1", "value": -0.059414852}, {"arrows": "to", "color": "red", "from": "APOBEC-D", "to": "TWIST1", "value": 0.024597697}, {"arrows": "to", "color": "red", "from": "APOBEC-D", "to": "ADAMTS13", "value": 0.024788771}, {"arrows": "to", "color": "red", "from": "APOBEC-D", "to": "DCLRE1C", "value": 0.024700271}, {"arrows": "to", "color": "blue", "from": "GAB2", "to": "APOBEC-D", "value": -0.076077204}, {"arrows": "to", "color": "blue", "from": "IL2RB", "to": "APOBEC-D", "value": -0.097371116}, {"arrows": "to", "color": "blue", "from": "REXO4", "to": "APOBEC-D", "value": -0.043253773}, {"arrows": "to", "color": "red", "from": "BMX", "to": "APOBEC-D", "value": 0.049237023}, {"arrows": "to", "color": "red", "from": "APBB1", "to": "APOBEC-D", "value": 0.073471132}, {"arrows": "to", "color": "blue", "from": "HRDstatus", "to": "APOBEC-D", "value": -0.021907466}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "APOBEC-D", "value": 0.416498638}, {"arrows": "to", "color": "red", "from": "SBS5", "to": "MITF", "value": 0.032436911}, {"arrows": "to", "color": "blue", "from": "SBS5", "to": "CBX8", "value": -0.027625728}, {"arrows": "to", "color": "blue", "from": "SBS5", "to": "FARP2", "value": -0.03603063}, {"arrows": "to", "color": "blue", "from": "SBS5", "to": "FRK", "value": -0.035349786}, {"arrows": "to", "color": "red", "from": "SBS5", "to": "APOBEC3H", "value": 0.029578631}, {"arrows": "to", "color": "red", "from": "SBS5", "to": "JAG2", "value": 0.038548459}, {"arrows": "to", "color": "red", "from": "SBS5", "to": "APOBEC-C", "value": 0.026783526}, {"arrows": "to", "color": "blue", "from": "SLC7A11", "to": "SBS5", "value": -0.044902663}, {"arrows": "to", "color": "blue", "from": "TAZ", "to": "SBS5", "value": -0.037609379}, {"arrows": "to", "color": "red", "from": "MITF", "to": "SBS5", "value": 0.087852295}, {"arrows": "to", "color": "blue", "from": "FOXJ1", "to": "SBS5", "value": -0.0331358}, {"arrows": "to", "color": "blue", "from": "EFNB2", "to": "SBS5", "value": -0.02985325}, {"arrows": "to", "color": "blue", "from": "FARP2", "to": "SBS5", "value": -0.098846017}, {"arrows": "to", "color": "red", "from": "MCM2", "to": "SBS5", "value": 0.11135414}, {"arrows": "to", "color": "blue", "from": "FRK", "to": "SBS5", "value": -0.06916923}, {"arrows": "to", "color": "red", "from": "MAPKAPK2", "to": "SBS5", "value": 0.07955851}, {"arrows": "to", "color": "blue", "from": "IL1A", "to": "SBS5", "value": -0.046097314}, {"arrows": "to", "color": "blue", "from": "SLA2", "to": "SBS5", "value": -0.053813662}, {"arrows": "to", "color": "red", "from": "APOBEC-C", "to": "SBS5", "value": 0.029866965}, {"arrows": "to", "color": "blue", "from": "SBS8", "to": "SOX6", "value": -0.021345055}, {"arrows": "to", "color": "blue", "from": "NHP2", "to": "SBS8", "value": -0.049113111}, {"arrows": "to", "color": "red", "from": "IFITM2", "to": "SBS8", "value": 0.109703612}, {"arrows": "to", "color": "blue", "from": "EDN1", "to": "SBS8", "value": -0.040921078}, {"arrows": "to", "color": "blue", "from": "CCR8", "to": "SBS8", "value": -0.211373651}, {"arrows": "to", "color": "blue", "from": "TXK", "to": "SBS8", "value": -0.101107408}, {"arrows": "to", "color": "blue", "from": "MOV10L1", "to": "SBS8", "value": -0.046821119}, {"arrows": "to", "color": "red", "from": "POLM", "to": "SBS8", "value": 0.059549095}, {"arrows": "to", "color": "blue", "from": "MAPKAPK3", "to": "SBS8", "value": -0.084874397}, {"arrows": "to", "color": "red", "from": "DAPK2", "to": "SBS8", "value": 0.03949462}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": false,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
