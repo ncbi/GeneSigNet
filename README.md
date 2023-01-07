@@ -27,7 +27,7 @@ Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signa
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
-* [SignatureNetwork_BRCA.html](results/SignatureNetwork_BRCA.html):
+* [SignatureNetwork_BRCA.html](results/SignatureNetwork_BRCA.html)
 * 
 #### Cancer Data (.cvs format)
 
