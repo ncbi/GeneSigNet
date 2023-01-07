@@ -6,7 +6,7 @@ A computational method for constructing Gene - Signature causal network from gen
 pip install GeneSigNet
 ```
 
-#### Sample python script to use GeneSigNet
+#### Sample python script to load data and run GeneSigNet
 
 ```
 import pandas as pd
@@ -21,12 +21,14 @@ Net=GSN.WeightMatrix(D, maxit, tolerance)
 Weight_Matrix=Net.ConstructNet()
 Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
 ```
-#### Sample python script visualize the result as network
+#### Sample python script to visualize the result as network
 ```
-Signatures=SigData.columns
+Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signature nodes)
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
+* [SignatureNetwork_BRCA.html](results/SignatureNetwork_BRCA.html):
+* 
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
