@@ -6,10 +6,8 @@ A computational method for constructing Gene - Signature causal network from gen
 pip install GeneSigNet
 ```
 
-#### Vignettes
+#### To use GeneSigNet
 
-```
-To use GeneSigNet:
 ```
 import pandas as pd
 import GeneSigNet as GSN
@@ -19,7 +17,7 @@ D=pd.concat([ExpData, SigData], axis=1)
 Net=GSN.WeightMatrix(D, maxit, tolerance)  
 Weight_Matrix=Net.ConstructNet()
 Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
-
+```
 #### Visualize the result as network
 
 Signatures=SigData.columns
