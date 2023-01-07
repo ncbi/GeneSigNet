@@ -30,4 +30,8 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
-* [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv): Normalized expression collected from ICGC which covers 266 cancer samples and 2,204 genes (Go term DNAmetabolic and immune response precesses).
+
+* [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv): The normalized gene expression data (ICGC data portal) for 266 breast cancer (BRCA) patients. Gene expression profiles for 2,204 genes involved in either DNA metabolic or immune response processes of the Gene Ontology (GO) database were
+selected for the analysis.
+* [Signature_Exposure_BRCA.csv](data/Signature_Exposure_BRCA.csv): Exposure of 6 mutational signatures and HRD mutational status are used for the analysis
+
