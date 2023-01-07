@@ -8,6 +8,15 @@ pip install GeneSigNet
 
 #### Vignettes
 
-Within a  session:
+To use GeneSigNet:
 ```
-GeneGigNet(E, package="EvoGeneX")
+import pandas as pd
+import GeneSigNet as GSN
+
+maxit=10000; tolerance=1e-12; 
+D=pd.concat([ExpData, SigData], axis=1)
+Net=GSN.WeightMatrix(D, maxit, tolerance)  
+Weight_Matrix=Net.ConstructNet()
+
+
+#### Visualize the result as network
