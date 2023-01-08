@@ -1,10 +1,14 @@
 # GeneSigNet
+
 A computational method for constructing Gene - Signature causal network from gene expression and exposure of mutational signatures. 
-#### Source install
+#### Source install for the GeneSigNet package
 
 ```
 pip install GeneSigNet
 ```
+#### Pre-required installation of python libraries before running GeneSigNet
+
+pandas, numpy, scipy, sklearn and warnings
 
 #### Sample python script to load data and run GeneSigNet
 
