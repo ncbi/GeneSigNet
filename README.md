@@ -34,7 +34,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 See [Simulated network](https://github.com/ncbi/GeneSigNet/blob/main/package/SignatureNetwork_Simulated.html).
 
 #### Python package 
-* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.. Simalated gene expression and exposure of muational signatures are provided as example to use the package. Python script in Jupyter Notebook file provides  
+* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.ipynb in Jupyter Notebook. Data matrices for simalated gene expression and exposure of muational signatures are provided as example inputs to show running the package. Python script Call_GeneSigNet.py in python and Call_GeneSigNet.ipynb in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures.  
   
 
 #### Results of the analysis on breast and lung cancer data.
