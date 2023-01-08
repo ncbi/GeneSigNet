@@ -31,7 +31,7 @@ Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signa
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
-See [Simulated network]().
+See [Simulated network](https://github.com/ncbi/GeneSigNet/blob/main/package/SignatureNetwork_Simulated.html).
 
 #### Python package 
 * [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.. Simalated gene expression and exposure of muational signatures are provided as example to use the package. Python script in Jupyter Notebook file provides  
