@@ -27,8 +27,9 @@ Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signa
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
-lkdsjgdlkjg
-* [Weight_Matrix_Simulated.cvs](package/Weight_Matrix_Simulated.cvs): The
+#### Python package 
+* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py. Simalated gene expression and exposure of muational signatures are provided as example to use the package. Python script in Jupyter Notebook file provides  
+  
 
 #### Results for the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
