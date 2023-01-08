@@ -35,8 +35,8 @@ The following files proves the results for the analysis on breast and lung cance
 - [Weight_Matrix_BRCA.cvs](Results/Weight_Matrix_BRCA.cvs): The
 - [Weight_Matrix_LUAD.cvs](Results/Weight_Matrix_LUAD.cvs):
 
-- [SignatureNetwork_BRCA.html](Results/SignatureNetwork_BRCA.html):
-- [SignatureNetwork_LUAD.html](Results/SignatureNetwork_LUAD.html):
+* [SignatureNetwork_BRCA.html](Results/SignatureNetwork_BRCA.html):
+* [SignatureNetwork_LUAD.html](Results/SignatureNetwork_LUAD.html):
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
