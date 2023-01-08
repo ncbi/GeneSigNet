@@ -32,7 +32,8 @@ lkdsjgdlkjg
 
 #### Results for the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
-- [Results](Results):
+- [Results](Results): As result of the analysis in the two cancer data sets, the weight matrices inferred to represent the directed interactions among genes and signatures, and subnetwork figures representing the interaction between signatures and their up and down stream genes![image](https://user-images.githubusercontent.com/70968607/211207742-d4ce303b-9ce7-4b8e-b09d-17934d447d7e.png)   
+
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
