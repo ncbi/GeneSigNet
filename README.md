@@ -21,7 +21,7 @@ Net=GSN.WeightMatrix(D, maxit, tolerance)
 Weight_Matrix=Net.ConstructNet()
 Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
 ```
-#### Sample python script to visualize the result as network
+#### Sample python script to visualize the resulting network
 ```
 Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signature nodes)
 th=0.05
