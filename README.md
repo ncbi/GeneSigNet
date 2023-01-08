@@ -30,13 +30,9 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 lkdsjgdlkjg
 + [Weight_Matrix_Simulated.cvs](Package/Weight_Matrix_Simulated.cvs): The
 
-#### Results (.cvs format)
+#### Results for the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
-- [Weight_Matrix_BRCA.cvs](Results/Weight_Matrix_BRCA.cvs): The
-- [Weight_Matrix_LUAD.cvs](Results/Weight_Matrix_LUAD.cvs):
-
-* [SignatureNetwork_BRCA.html](Results/SignatureNetwork_BRCA.html):
-* [SignatureNetwork_LUAD.html](Results/SignatureNetwork_LUAD.html):
+- [Results](Results):
 #### Cancer Data (.cvs format)
 
 The following files provides the gene expression and exposure of mutational signatures for cancer patients.
