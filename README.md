@@ -38,7 +38,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
 #### Python package 
-* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.ipynb in Jupyter Notebook. Data matrices for simalated gene expression and exposure of muational signatures are provided as example inputs to show running the package. Python script Call_GeneSigNet.py in python and [Call GeneSigNet](package/Call_GeneSigNet.ipynb) in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures [VisualizeNetwork](package/VisualizeNetwork.ipynb).  
+* [Package](package): The GeneSigNet method is implemented in python and the code is available as [GeneSigNet python](package/GeneSigNet.py) in python and GeneSigNet.ipynb in Jupyter Notebook. Data matrices for simalated gene expression and exposure of muational signatures are provided as example inputs to show running the package. Python script Call_GeneSigNet.py in python and [Call GeneSigNet](package/Call_GeneSigNet.ipynb) in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures [VisualizeNetwork](package/VisualizeNetwork.ipynb).  
   
 
 #### Results of the analysis on breast and lung cancer data.
