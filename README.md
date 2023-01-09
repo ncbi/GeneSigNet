@@ -6,7 +6,7 @@ A computational method for constructing Gene - Signature causal network from gen
 ```
 pip install GeneSigNet
 ```
-Source Install [GeneSigNet 0.1.0](https://pypi.org/project/GeneSigNet/)
+Installation source: [GeneSigNet 0.1.0](https://pypi.org/project/GeneSigNet/)
 
 #### Pre-required installations
 
