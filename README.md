@@ -6,11 +6,11 @@ A computational method for constructing Gene - Signature causal network from gen
 ```
 pip install GeneSigNet
 ```
-Find [Source Install](https://pypi.org/project/GeneSigNet/)
+Source Install [GeneSigNet 0.1.0](https://pypi.org/project/GeneSigNet/)
 
 #### Pre-required installations
 
-python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pyvis is also required to be installed before running the visalization module VisualizeNetwork(Weight_Matrix, Signatures, th)
+python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pyvis is also required to be installed before running the visalization module [VisualizeNetwork](package/VisualizeNetwork.ipynb)
 
 #### Sample python script to load data and run GeneSigNet
 
