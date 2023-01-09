@@ -38,7 +38,7 @@ import pandas as pd
 from pyvis.network import Network
 
 Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signature nodes)
-th=0.05
+th=0.05                    # The threshold parameter for selecting edges to be included in the visualizing network
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
