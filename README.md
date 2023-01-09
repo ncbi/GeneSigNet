@@ -10,7 +10,7 @@ Installation source: [GeneSigNet 0.1.0](https://pypi.org/project/GeneSigNet/)
 
 #### Pre-required installations
 
-python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pyvis is also required to be installed before running the visalization module [VisualizeNetwork](package/VisualizeNetwork.ipynb)
+python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pyvis is also required to be installed before running the network visualization module.
 
 #### Sample python script to load data and run GeneSigNet
 
@@ -38,7 +38,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
 #### Python package 
-* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.ipynb in Jupyter Notebook. Data matrices for simalated gene expression and exposure of muational signatures are provided as example inputs to show running the package. Python script Call_GeneSigNet.py in python and Call_GeneSigNet.ipynb in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures.  
+* [Package](package): The GeneSigNet method is implemented in python and the code is available as GeneSigNet.py in python and GeneSigNet.ipynb in Jupyter Notebook. Data matrices for simalated gene expression and exposure of muational signatures are provided as example inputs to show running the package. Python script Call_GeneSigNet.py in python and [Call GeneSigNet](package/Call_GeneSigNet.ipynb) in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures [VisualizeNetwork](package/VisualizeNetwork.ipynb).  
   
 
 #### Results of the analysis on breast and lung cancer data.
