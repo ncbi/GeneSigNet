@@ -10,7 +10,7 @@ Installation source: [GeneSigNet 0.1.0](https://pypi.org/project/GeneSigNet/)
 
 #### Pre-required installations
 
-python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pandas and pyvis are required to be installed before running the network visualization module VisualizeNetwork.
+Python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pandas and pyvis are required to be installed before running the network visualization module VisualizeNetwork.
 
 #### Sample python script to load data and run GeneSigNet
 
