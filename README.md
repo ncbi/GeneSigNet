@@ -21,7 +21,7 @@ import GeneSigNet as GSN
 # A gene expression data matrix (columns are genes and rows are samples) 
 ExpData = pd.read_csv('Gene_Expression_Data.csv', index_col=0) 
 
-# A signature exposure datamatrix (columns are signatures and rows are samples)
+# A signature exposure data matrix (columns are signatures and rows are samples)
 SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)  
 
 maxit=10000     # maximum number of iterations for selecting sparce partial correlation
