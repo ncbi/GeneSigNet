@@ -24,7 +24,7 @@ ExpData = pd.read_csv('Gene_Expression_Data.csv', index_col=0)
 # A signature exposure datamatrix (columns are signatures and rows are samples)
 SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)  
 
-maxit=10000     # maximum number of iteration for selecting sparce partial correlation
+maxit=10000     # maximum number of iterations for selecting sparce partial correlation
 tolerance=1e-12 # tolerance of iteration for selecting sparce partial correlation
 
 D=pd.concat([ExpData, SigData], axis=1)
