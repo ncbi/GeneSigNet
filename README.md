@@ -18,10 +18,15 @@ Python libraries pandas, numpy, scipy, sklearn and warnings are required to be i
 import pandas as pd
 import GeneSigNet as GSN
 
-ExpData = pd.read_csv('Gene_Expression_Data.csv', index_col=0)  # A gene expression data matrix (columns are genes and rows are samples) 
-SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)  # A signature exposure matrix (columns are signatures and rows are samples)
+# A gene expression data matrix (columns are genes and rows are samples) 
+ExpData = pd.read_csv('Gene_Expression_Data.csv', index_col=0) 
 
-maxit=10000; tolerance=1e-12; 
+# A signature exposure datamatrix (columns are signatures and rows are samples)
+SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)  
+
+maxit=10000     # maximum number of iteration for selecting sparce partial correlation
+tolerance=1e-12 # tolerance of iteration for selecting sparce partial correlation
+
 D=pd.concat([ExpData, SigData], axis=1)
 Net=GSN.WeightMatrix(D, maxit, tolerance)  
 Weight_Matrix=Net.ConstructNet()
