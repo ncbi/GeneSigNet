@@ -37,8 +37,7 @@ th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
-#### Python package 
-[Package](package): 
+#### Python [Package](package): 
 * The GeneSigNet method is implemented in python and the codes are available as [Python module](package/GeneSigNet.py) and [Jupyter  Notebook](package/GeneSigNet.ipynb). 
 
 * Simalated data matrices [Gene Expression](package/Gene_Expression_Simulated_Data.cvs) and [Exposure of Mutational Signatures](package/Signature_Exposure_Simulated_Data.cvs) are provided as example inputs to show running the package. 
