@@ -10,7 +10,7 @@ Find [Source Install](https://pypi.org/project/GeneSigNet/)
 
 #### Pre-required installations
 
-python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet
+python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet, and pyvis is also required to be installed before running the visalization module VisualizeNetwork(Weight_Matrix, Signatures, th)
 
 #### Sample python script to load data and run GeneSigNet
 
@@ -29,6 +29,9 @@ Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
 ```
 #### Sample python script to visualize the resulting network
 ```
+import pandas as pd
+from pyvis.network import Network
+
 Signatures=SigData.columns # or Signatures=['SBS1', 'SBS2',...,] (names of signature nodes)
 th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
