@@ -55,9 +55,9 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 The following files proves the results for the analysis on breast and lung cancer data 
 - [Results](results): As result of the analysis in the two cancer data sets, the weight matrices inferred to represent the directed interactions among genes and signatures, and subnetwork figures representing the interaction between signatures and their up and down stream genes.   
 
-#### Cancer Data (.cvs format)
+#### Cancer Data [Data sets](data)
 
-The following files provides the gene expression and exposure of mutational signatures for cancer patients.
+The following files provides the gene expression and exposure of mutational signatures for cancer (BRCA and LUAD) patients.
 
 * [Gene_Expression_BRCA.csv](data/Gene_Expression_BRCA.csv): The normalized gene expression data (ICGC data portal) for 266 breast cancer (BRCA) patients. Gene expression profiles for 2,204 genes involved in either DNA metabolic or immune response processes of the Gene Ontology (GO) database were
 selected for the analysis.
