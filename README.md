@@ -37,14 +37,15 @@ th=0.05
 VisualizeNetwork(Weight_Matrix, Signatures, th)
 ```
 
-#### Python [Package](package): 
-* The GeneSigNet method is implemented in python and the codes are available as [Python module](package/GeneSigNet.py) and [Jupyter  Notebook](package/GeneSigNet.ipynb). 
+#### Python [Package](package) 
+* The GeneSigNet method is implemented in python and the codes are available as [Python module](package/GeneSigNet.py) and [Jupyter Notebook module](package/GeneSigNet.ipynb).
 
-* Simalated data matrices [Gene Expression](package/Gene_Expression_Simulated_Data.cvs) and [Exposure of Mutational Signatures](package/Signature_Exposure_Simulated_Data.cvs) are provided as example inputs to show running the package. 
+* The python scripts for running GeneSigNet are available as [Python script](package/Call_GeneSigNet.py) and [Jupyter Notebook script](package/Call_GeneSigNet.ipynb). The scripts are recommended to load data and run GeneSigNet.
 
-* Python script Call_GeneSigNet.py in python and [Call GeneSigNet](package/Call_GeneSigNet.ipynb) in Jupyter Notebook files are recommended to upload data, run GeneSigNet and visualize the result in the form of network structures [VisualizeNetwork](package/VisualizeNetwork.ipynb).  
+* Simalated data matrices [Gene Expression](package/Gene_Expression_Simulated_Data.cvs) and [Exposure of Mutational Signatures](package/Signature_Exposure_Simulated_Data.cvs) are provided as example inputs to run the package. 
+
+* Python module [VisualizeNetwork](package/VisualizeNetwork.ipynb) visualize the subnetwork covering hub-nodes (Signatures) and their up and downstream nodes (causal and affected genes). The weight matrix inferred by GeneSigNet method is as input of VisualizeNetwork module.
   
-
 #### Results of the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
 - [Results](results): As result of the analysis in the two cancer data sets, the weight matrices inferred to represent the directed interactions among genes and signatures, and subnetwork figures representing the interaction between signatures and their up and down stream genes.   
