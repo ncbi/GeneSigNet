@@ -18,14 +18,14 @@ Python libraries pandas, numpy, scipy, sklearn and warnings are required to be i
 import pandas as pd
 import GeneSigNet as GSN
 
-ExpData = pd.read_csv('Gene_Expression_Simulated_Data.csv', index_col=0)  
-SigData = pd.read_csv('Signature_Exposure_Simulated_Data.csv', index_col=0)
+ExpData = pd.read_csv('Gene_Expression_Data.csv', index_col=0)  # A gene expression data matrix (columns are genes and rows are samples) 
+SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)  # A signature exposure matrix (columns are signatures and rows are samples)
 
 maxit=10000; tolerance=1e-12; 
 D=pd.concat([ExpData, SigData], axis=1)
 Net=GSN.WeightMatrix(D, maxit, tolerance)  
 Weight_Matrix=Net.ConstructNet()
-Weight_Matrix.to_csv('Weight_Matrix_Simulated.csv')
+Weight_Matrix.to_csv('Weight_Matrix.csv')
 ```
 #### Sample python script to visualize the resulting network
 ```
