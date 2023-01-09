@@ -6,6 +6,8 @@ A computational method for constructing Gene - Signature causal network from gen
 ```
 pip install GeneSigNet
 ```
+See [vignette](https://pypi.org/project/GeneSigNet/).
+
 #### Pre-required installations
 
 python libraries pandas, numpy, scipy, sklearn and warnings are required to be installed before running GeneSigNet
