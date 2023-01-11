@@ -53,7 +53,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
   
 #### Results of the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
-- [Results](results): As result of the analysis in the two cancer data sets, the weight matrices inferred to represent the directed interactions among genes and signatures, and subnetwork figures representing the interaction between signatures and their up and down stream genes.   
+- [Results](results): As result of the analysis in the two cancer data sets, the weight matrices (.cvs files) inferred to represent the directed interactions among genes and signatures, and subnetwork figures (.html files) representing the interaction between signatures and their up and down stream genes.   
 
 #### Cancer Data [Data sets](data)
 
