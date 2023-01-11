@@ -27,8 +27,8 @@ SigData = pd.read_csv('Signature_Exposure_Data.csv', index_col=0)
 maxit=10000     # maximum number of iterations for selecting sparce partial correlation
 tolerance=1e-12 # tolerance of iteration for selecting sparce partial correlation
 
-D=pd.concat([ExpData, SigData], axis=1)
-Net=GSN.WeightMatrix(D, maxit, tolerance)  
+D=pd.concat([ExpData, SigData], axis=1) # Sample matched gene expressions and exposures of mutational signatures are combined as input
+Net=GSN.WeightMatrix(D, maxit, tolerance) 
 Weight_Matrix=Net.ConstructNet()
 Weight_Matrix.to_csv('Weight_Matrix.csv')
 ```
