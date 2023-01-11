@@ -49,7 +49,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 
 * Simulated data matrices, [Gene Expression](package/Gene_Expression_Simulated_Data.cvs) and [Exposure of Mutational Signatures](package/Signature_Exposure_Simulated_Data.cvs), are provided as example inputs to run the package. 
 
-* Python module [VisualizeNetwork](package/VisualizeNetwork.ipynb) visualize the subnetwork covering hub-nodes (Signatures) and their up and downstream nodes (causal and affected genes). The weight matrix inferred by GeneSigNet method is as input of VisualizeNetwork module.
+* Python module [VisualizeNetwork](package/VisualizeNetwork.ipynb) visualize the subnetwork covering hub-nodes (Signatures) and their up and downstream nodes (causal and affected genes). The weight matrix inferred by GeneSigNet method is as input of the network visualization module.
   
 #### Results of the analysis on breast and lung cancer data.
 The following files proves the results for the analysis on breast and lung cancer data 
