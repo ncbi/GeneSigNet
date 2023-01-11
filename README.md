@@ -47,7 +47,7 @@ VisualizeNetwork(Weight_Matrix, Signatures, th)
 
 * The python scripts for running GeneSigNet are available as [Python script](package/Call_GeneSigNet.py) and [Jupyter Notebook script](package/Call_GeneSigNet.ipynb). The scripts are recommended to load data and run GeneSigNet.
 
-* Simulated data matrices for gene expression and exposure of mutational signatures are provided as example inputs to run the package. 
+* Simulated data matrices for gene expression and exposure of mutational signatures are provided with the source codes as example inputs to run the package. 
 
 * Python module [VisualizeNetwork](package/VisualizeNetwork.ipynb) visualize the subnetwork covering hub-nodes (Signatures) and their up and downstream nodes (causal and affected genes). The weight matrix inferred by GeneSigNet method is as input of the network visualization module.
   
